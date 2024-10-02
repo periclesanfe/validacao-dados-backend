@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola Virtual</title>
+    <link rel="sylesheet" href="styles.css">
+</head>
+<body>
+    <div id="titulos">
+        <h1>Escola Vitual</h1>
+        <h2>Formulário de Pré-Matrícula</h2>
+    </div>
+    <div id="formulario">
+        <form action="/submit" method="POST">
+            <section id="dadosPessoais">
+                <legend>Dados Pessoais:</legend>
+                <label for="nomeAluno">Nome do Aluno:</label>
+                <input type="text" id="nomeAluno" name="nomeAluno" size="50"><br><br>
+
+                <label for="nascimento">Nascimento (dd/mm/aaaa):</label>
+                <input type="text" id="dia" name="dia" size="2" maxlength="2">/
+                <input type="text" id="mes" name="mes" size="2" maxlength="2">/
+                <input type="text" id="ano" name="ano" size="4" maxlength="4"><br><br>
+
+                <label for="nomeMae">Nome da Mãe:</label>
+                <input type="text" id="nomeMae" name="nomeMae" size="50"><br><br>
+
+                <label for="nomePai">Nome Pai:</label>
+                <input type="text" id="nomePai" name="nomePai" size="50"><br><br>
+
+                <label for="telefone">Telefone:</label>
+                DDD (<input type="text" id="ddd" name="ddd" size="2" maxlength="2">)
+                Tel <input type="text" id="tel" name="tel" size="9" maxlength="9">
+                Ramal <input type="text" id="ramal" name="ramal" size="4" maxlength="4"><br><br> 
+
+                <label for="email">E-Mail:</label>
+                <input type="text" id="email" size="50"><br><br>
+
+            </section>
+            <section id="informacoesMatricula">
+                <legend>Informações de Matrícula</legend>
+                
+            </section>
+            <section id="botoes">
+
+            </section>
+        </form>
+    </div>
+</body>
+</html>
