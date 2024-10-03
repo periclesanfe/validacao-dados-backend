@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/styles.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <div class="container">
+        <h1>Escola Virtual</h1>
+        <h2>Formulário de Pré-Matrícula</h2>
+
+        <% if (message) { %>
+            <div style="color: red;"><%= message %></div>
+        <% } %>
+
+        <form action="/enviar" method="POST">
+            <fieldset>
+                <legend>Dados Pessoais:</legend>
+                <label for="nomeAluno">Nome do Aluno:</label>
+                <input type="text" id="nomeAluno" name="nomeAluno" required>
+
+                <label for="nascimento">Nascimento (dd/mm/aaaa):</label>
+                <div class="inline">
+                    <input type="text" id="dia" name="dia" class="small" placeholder="DD" required maxlength="2">
+                    <input type="text" id="mes" name="mes" class="small" placeholder="MM" required maxlength="2">
+                    <input type="text" id="ano" name="ano" class="small" placeholder="AAAA" required maxlength="4">
+                </div>
+
+                <label for="nomeMae">Nome da Mãe:</label>
+                <input type="text" id="nomeMae" name="nomeMae" required>
+
+                <label for="nomePai">Nome do Pai:</label>
+                <input type="text" id="nomePai" name="nomePai" required>
+
+                <label for="telefone">Telefone: DDD ( ) Tel:</label>
+                <div class="inline">
+                    <input type="text" id="ddd" name="ddd" class="small" placeholder="DDD" required maxlength="2">
+                    <input type="text" id="telefone" name="telefone" class="half-width" placeholder="Telefone" style="width: 100px;" required maxlength="9">
+                </div>
+
+                <label for="ramal">Ramal:</label>
+                <input type="text" id="ramal" name="ramal" class="small">
+
+                <label for="email">E-Mail:</label>
+                <input type="text" id="email" name="email" class="full-width" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Informações de Matrícula:</legend>
+                <div class="form-grid">
+                    <div>
+                        <label for="serie">Série:</label>
+                        <select id="serie" name="serie" required>
+                            <option value="" disabled selected></option>
+                            <option value="pre-escolar">pré-escolar</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>Turno:</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="turno" value="manha" required> Manhã</label>
+                            <label><input type="radio" name="turno" value="tarde" required> Tarde</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>Atividades Extracurriculares:</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="atividades" value="informatica"> Informática</label>
+                            <label><input type="checkbox" name="atividades" value="musica"> Música</label>
+                            <label><input type="checkbox" name="atividades" value="ballet"> Balé</label>
+                            <label><input type="checkbox" name="atividades" value="pintura"> Pintura</label>
+                            <label><input type="checkbox" name="atividades" value="judo"> Judô</label>
+                            <label><input type="checkbox" name="atividades" value="futebol"> Futebol</label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="button-group">
+                <button type="submit">Envia Formulário</button>
+                <button type="reset">Limpa Campos</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
