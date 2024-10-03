@@ -1,52 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escola Virtual</title>
-    <link rel="sylesheet" href="styles.css">
+    <title>Escola Virtual - Formulário de Pré-Matrícula</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid black;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        fieldset {
+            border: 1px solid black;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 0 10px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"], input[type="date"] {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        .inline {
+            display: flex;
+            width: 30%;
+            gap: 10px;
+            box-sizing: border-box;
+        }
+
+        .full-width {
+            width: 100%;
+        }
+
+        .half-width {
+            width: 49%;
+        }
+
+        .small {
+            width: 30px;
+        }
+
+        .button-group {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .checkbox-group {
+            display: block;
+        }
+
+        .checkbox-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .radio-group {
+            display: block;
+        }
+
+        .radio-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
 </head>
 <body>
-    <div id="titulos">
-        <h1>Escola Vitual</h1>
+
+    <div class="container">
+        <h1>Escola Virtual</h1>
         <h2>Formulário de Pré-Matrícula</h2>
-    </div>
-    <div id="formulario">
-        <form action="/submit" method="POST">
-            <section id="dadosPessoais">
+
+        <form>
+            <fieldset>
                 <legend>Dados Pessoais:</legend>
                 <label for="nomeAluno">Nome do Aluno:</label>
-                <input type="text" id="nomeAluno" name="nomeAluno" size="50"><br><br>
+                <input type="text" id="nomeAluno" name="nomeAluno">
 
                 <label for="nascimento">Nascimento (dd/mm/aaaa):</label>
-                <input type="text" id="dia" name="dia" size="2" maxlength="2">/
-                <input type="text" id="mes" name="mes" size="2" maxlength="2">/
-                <input type="text" id="ano" name="ano" size="4" maxlength="4"><br><br>
+                <div class="inline">
+                    <input type="text" id="dia" name="dia" class="small" placeholder="DD">
+                    <input type="text" id="mes" name="mes" class="small" placeholder="MM">
+                    <input type="text" id="ano" name="ano" class="small" placeholder="AAAA">
+                </div>
 
                 <label for="nomeMae">Nome da Mãe:</label>
-                <input type="text" id="nomeMae" name="nomeMae" size="50"><br><br>
+                <input type="text" id="nomeMae" name="nomeMae">
 
-                <label for="nomePai">Nome Pai:</label>
-                <input type="text" id="nomePai" name="nomePai" size="50"><br><br>
+                <label for="nomePai">Nome do Pai:</label>
+                <input type="text" id="nomePai" name="nomePai">
 
-                <label for="telefone">Telefone:</label>
-                DDD (<input type="text" id="ddd" name="ddd" size="2" maxlength="2">)
-                Tel <input type="text" id="tel" name="tel" size="9" maxlength="9">
-                Ramal <input type="text" id="ramal" name="ramal" size="4" maxlength="4"><br><br> 
+                <label for="telefone">Telefone: DDD ( ) Tel:</label>
+                <div class="inline">
+                    <input type="text" id="ddd" name="ddd" class="small" placeholder="DDD">
+                    <input type="text" id="telefone" name="telefone" class="half-width" placeholder="Telefone" style="width: 100px;">
+                </div>
+                <label for="ramal">Ramal:</label>
+                <input type="text" id="ramal" name="ramal" class="small">
 
                 <label for="email">E-Mail:</label>
-                <input type="text" id="email" size="50"><br><br>
+                <input type="text" id="email" name="email" class="full-width">
+            </fieldset>
 
-            </section>
-            <section id="informacoesMatricula">
-                <legend>Informações de Matrícula</legend>
-                
-            </section>
-            <section id="botoes">
+            <fieldset>
+                <legend>Informações de Matrícula:</legend>
+                <div class="form-grid">
+                    <div>
+                        <label for="serie">Série:</label>
+                        <select id="serie" name="serie" >
+                            <option value="" disabled selected></option>
+                            <option value="pre-escolar">pré-escolar</option>
+                        </select>
+                    </div>
 
-            </section>
+                    <div>
+                        <label>Turno:</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="turno" value="manha"> Manhã</label>
+                            <label><input type="radio" name="turno" value="tarde"> Tarde</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>Atividades Extracurriculares:</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="atividades" value="informatica"> Informática</label>
+                            <label><input type="checkbox" name="atividades" value="musica"> Música</label>
+                            <label><input type="checkbox" name="atividades" value="ballet"> Balé</label>
+                            <label><input type="checkbox" name="atividades" value="pintura"> Pintura</label>
+                            <label><input type="checkbox" name="atividades" value="judo"> Judô</label>
+                            <label><input type="checkbox" name="atividades" value="futebol"> Futebol</label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="button-group">
+                <button type="submit">Envia Formulário</button>
+                <button type="reset">Limpa Campos</button>
+            </div>
         </form>
     </div>
+
 </body>
 </html>
